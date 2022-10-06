@@ -104,7 +104,7 @@
 
                     //ajax delete
                     jQuery.ajax({
-                        url: "/admin/berita/"+id,
+                        url: "/admin/slider/"+id,
                         data:     {
                             "id": id,
                             "_token": token

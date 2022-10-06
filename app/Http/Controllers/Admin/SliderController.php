@@ -55,7 +55,8 @@ class SliderController extends Controller
             'gambar'        => 'required|image|mimes:jpeg,jpg,png|max:2000',
 
         ]);
-
+        
+        // dd($request);
         
         //upload image
         $image = $request->file('gambar');
@@ -121,7 +122,7 @@ class SliderController extends Controller
     {
         $get = slider::findOrFail($id);
         // dd($get);
-
+       
         $this->validate($request,[
             'judul'         => 'required',
             'tgl_publish'   => 'required',
@@ -143,7 +144,7 @@ class SliderController extends Controller
         } else {
 
             //remove old image
-            Storage::disk('local')->delete('public/slide/'.$get->gambar);
+            Storage::disk('local')->delete('public/slide/'.basename($get->gambar));
 
             //upload new image
             $image = $request->file('gambar');
@@ -179,7 +180,8 @@ class SliderController extends Controller
     public function destroy($id)
     {
         $data = slider::findOrFail($id);
-        $image = Storage::disk('local')->delete('public/posts/'.basename($data->foto));
+        // dd($data);
+        $image = Storage::disk('local')->delete('public/slide/'.basename($data->gambar));
         $del = $data->delete();
 
         if ($del) {

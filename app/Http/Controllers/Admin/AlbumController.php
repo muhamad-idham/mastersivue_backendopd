@@ -135,7 +135,7 @@ class AlbumController extends Controller
         } else {
 
             //remove old image
-            Storage::disk('local')->delete('public/album/'.$get->foto);
+            Storage::disk('local')->delete('public/album/'.basename($get->foto));
 
             //upload new image
             $image = $request->file('foto');
