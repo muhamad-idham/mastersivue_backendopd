@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Dashboard &mdash; Admin Kota Bogor</title>
+    <title>Dashboard &mdash; Master Admin</title>
     @stack('before-style')
     <link rel="shortcut icon" href="{{ asset('assets/img/school.svg') }}" type="image/x-icon">
     <!-- General CSS Files -->
@@ -63,10 +63,10 @@
             <div class="main-sidebar sidebar-style-2">
                 <aside id="sidebar-wrapper">
                     <div class="sidebar-brand">
-                        <a href="index.html">Admin Kota Bogorr</a>
+                        <a href="index.html">Master Admin</a>
                     </div>
                     <div class="sidebar-brand sidebar-brand-sm">
-                        <a href="index.html">BGR</a>
+                        <a href="index.html">MBA</a>
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">MAIN MENU</li>
@@ -74,22 +74,41 @@
                                 href="{{ route('admin.dashboard.index') }}">
                                 <i class="fas fa-tachometer-alt"></i>
                                 <span>Dashboard</span></a></li>
-                        
-                        @can('katdatas.index')
-                        <li class="{{ setActive('admin/kategoridata')  }}">
-                            <a class="nav-link" href="{{ route('admin.kategoridata.index') }}">
-                            <i class="fas fa-folder"></i>
-                            <span>Kategori Data</span></a>
-                        </li>
-                        @endcan
 
-                        @can('katbanners.index')
-                        <li class="{{ setActive('admin/kategoribanner')  }}">
-                            <a class="nav-link" href="{{ route('admin.kategoribanner.index') }}">
-                            <i class="fas fa-folder"></i>
-                            <span>Kategori Banner</span></a>
+                        <li  class="dropdown {{ setActive('admin/kategoribanner'). setActive('admin/kategoriberita'). setActive('admin/kategoridata') }}">
+                            @if(auth()->user()->can('katbanners.index') || auth()->user()->can('katberitas.index') || auth()->user()->can('katdatas.index'))
+                            <a href="#" class="nav-link has-dropdown"><i class="fas fa-folder"></i><span>Master</span></a>
+                            @endif
+
+                            <ul class="dropdown-menu">
+
+                                @can('katbanners.index')
+                                <li class="{{ setActive('admin/kategoribanner')  }}">
+                                    <a class="nav-link" href="{{ route('admin.kategoribanner.index') }}">
+                                        <i class="fas fa-folder"></i>Kategori Banner
+                                    </a>
+                                </li>
+                                @endcan
+
+                                @can('katberitas.index')
+                                <li class="{{ setActive('admin/kategoriberita') }}">
+                                    <a class="nav-link" href="{{ route('admin.kategoriberita.index') }}">
+                                        <i class="fas fa-folder"></i>Kategori Berita
+                                    </a>
+                                </li>
+                                @endcan
+
+                                @can('katdatas.index')
+                                <li class="{{ setActive('admin/kategoridata')  }}">
+                                    <a class="nav-link" href="{{ route('admin.kategoridata.index') }}">
+                                        <i class="fas fa-folder"></i>Kategori Data
+                                    </a>
+                                </li>
+                                @endcan
+
+                            </ul>
                         </li>
-                        @endcan
+
 
                         @can('datastatis.index')
                         <li class="{{ setActive('admin/datastatis')  }}">
@@ -99,14 +118,6 @@
                         </li>
                         @endcan
 
-                        @can('katberitas.index')
-                        <li class="{{ setActive('admin/kategoriberita') }}">
-                            <a class="nav-link" href="{{ route('admin.kategoriberita.index') }}">
-                                <i class="fas fa-folder"></i>
-                                <span>Kategori Berita</span>
-                            </a>
-                        </li>
-                        @endcan
 
                         @can('beritas.index')
                         <li class="{{ setActive('admin/berita') }}">
@@ -223,6 +234,9 @@
                                 @endcan
                             </ul>
                         </li>
+
+
+
                     </ul>
                 </aside>
             </div>
@@ -232,7 +246,7 @@
 
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; 2021 <div class="bullet"></div> DISKOMINFO KOTA BOGOR <div class="bullet"></div> All Rights
+                    Copyright &copy; 2022 <div class="bullet"></div> MASTER ADMIN DISKOMINFO KOTA BOGOR <div class="bullet"></div> All Rights
                     Reserved.
                 </div>
                 <div class="footer-right">
