@@ -55,6 +55,20 @@
                         </div>
 
                         <div class="form-group">
+                            <label>TANGGAL</label>
+                            <input type="date" name="tgl_foto" value="{{ old('judul', $data->tgl_foto) }}"
+                                placeholder="Masukkan Judul foto"
+                                class="form-control @error('tgl_foto') is-invalid @enderror">
+
+
+                            @error('tgl_foto')
+                            <div class="invalid-feedback" style="display: block">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
                             <label>FOTO</label>
                             <input type="file" name="foto" class="form-control @error('foto') is-invalid @enderror">
                         </div>

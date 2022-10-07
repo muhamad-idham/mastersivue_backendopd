@@ -127,19 +127,46 @@
                             </a>
                         </li>
                         @endcan
-                        
-                        <li class="{{ setActive('admin/tags') }}">
-                            <a class="nav-link"href="{{ route('admin.tags.index') }}">
-                                <i class="fas fa-book-open"></i>
-                                <span>Tag Baru </span>
-                            </a>
-                        </li>
+                     
                         
                         {{-- @can('posts.index')
                         <li class="{{ setActive('admin/post') }}"><a class="nav-link"
                                 href="{{ route('admin.post.index') }}"><i class="fas fa-book-open"></i>
                                 <span>Berita Lama</span></a></li>
                         @endcan --}}
+
+
+
+                        {{-- @can('categories.index')
+                        <li class="{{ setActive('admin/category') }}"><a class="nav-link"
+                                href="{{ route('admin.category.index') }}"><i class="fas fa-folder"></i>
+                                <span>Kategori Berita Lama</span></a></li>
+                        @endcan --}}
+
+                        @can('dokumens.index')
+                        <li class="{{ setActive('admin/dokumen') }}"><a class="nav-link"
+                                href="{{ route('admin.dokumen.index') }}"><i class="fas fa-book"></i>
+                                <span>Dokumen</span></a></li>
+                        @endcan
+
+                        @can('agendas.index')
+                        <li class="{{ setActive('admin/agenda') }}"><a class="nav-link"
+                                href="{{ route('admin.agenda.index') }}"><i class="fas fa-bell"></i>
+                                <span>Agenda</span></a></li>
+                        @endcan
+
+                        @can('banners.index')
+                        <li class="{{ setActive('admin/banner') }}"><a class="nav-link"
+                                href="{{ route('admin.banner.index') }}"><i class="fas fa-image"></i>
+                                <span>Banner</span></a></li>
+                        @endcan
+
+                        <!-- <li class="{{ setActive('admin/tags') }}">
+                            <a class="nav-link"href="{{ route('admin.tags.index') }}">
+                                <i class="fas fa-book-open"></i>
+                                <span>Tag Baru </span>
+                            </a>
+                        </li> -->
 
                         @can('tags.index')
                         <li class="{{ setActive('admin/tag') }}"><a class="nav-link"
@@ -148,29 +175,6 @@
                         </li>
                         @endcan
 
-                        {{-- @can('categories.index')
-                        <li class="{{ setActive('admin/category') }}"><a class="nav-link"
-                                href="{{ route('admin.category.index') }}"><i class="fas fa-folder"></i>
-                                <span>Kategori Berita Lama</span></a></li>
-                        @endcan --}}
-
-                        @can('agendas.index')
-                        <li class="{{ setActive('admin/agenda') }}"><a class="nav-link"
-                                href="{{ route('admin.agenda.index') }}"><i class="fas fa-bell"></i>
-                                <span>Agenda</span></a></li>
-                        @endcan
-
-                        @can('dokumens.index')
-                        <li class="{{ setActive('admin/dokumen') }}"><a class="nav-link"
-                                href="{{ route('admin.dokumen.index') }}"><i class="fas fa-book"></i>
-                                <span>Dokumen</span></a></li>
-                        @endcan
-
-                        @can('banners.index')
-                        <li class="{{ setActive('admin/banner') }}"><a class="nav-link"
-                                href="{{ route('admin.banner.index') }}"><i class="fas fa-image"></i>
-                                <span>Banner</span></a></li>
-                        @endcan
 
                         @if(auth()->user()->can('photos.index') || auth()->user()->can('videos.index'))
                         <li class="menu-header">GALERI</li>

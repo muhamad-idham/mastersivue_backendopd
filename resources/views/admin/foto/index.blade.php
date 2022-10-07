@@ -37,9 +37,10 @@
                             <thead>
                             <tr>
                                 <th scope="col" style="text-align: center;width: 6%">NO.</th>
-                                <th scope="col">FOTO</th>
                                 <th scope="col">ALBUM</th>
+                                <th scope="col">FOTO</th>
                                 <th scope="col">KETERANGAN</th>
+                                <th scope="col">TANGGAL</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>
@@ -47,9 +48,10 @@
                             @foreach ($fotos as $no => $brt)
                                 <tr>
                                     <th scope="row" style="text-align: center">{{ ++$no + ($fotos->currentPage()-1) * $fotos->perPage() }}</th>
-                                    <td>{{ $brt->album->judul }}</td>
+                                    <td>{{ $brt->album->judul}}</td>
                                     <td><img src="{{ $brt->foto }}" style="width: 150px"></td>
                                     <td>{{ $brt->keterangan }}</td>
+                                    <td>{{ date("d M Y", strtotime($brt->tgl_foto)) }}</td>
                                     <td class="text-center">
                                         @can('posts.edit')
                                             <a href="{{ route('admin.foto.edit', $brt->id) }}" class="btn btn-sm btn-primary">

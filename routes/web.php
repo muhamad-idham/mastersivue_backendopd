@@ -86,14 +86,14 @@ Route::prefix('admin')->group(function () {
         // Route::resource('/slider', App\Http\Controllers\Admin\SliderController::class, ['except' => ['show', 'create', 'edit', 'update'] ,'as' => 'admin']);
         Route::resource('/slider', App\Http\Controllers\Admin\SliderController::class, ['except' => 'show' ,'as' => 'admin']);
 
-        Route::group(['prefix' => 'tags'], function() {
-            Route::get('/', [\App\Http\Controllers\Admin\TagsController::class, 'index'])->name('admin.tags.index');
-            Route::get('/create', [App\Http\Controllers\Admin\TagsController::class, 'create'])->name('admin.tags.create');
-            Route::post('/store', [App\Http\Controllers\Admin\TagsController::class, 'store'])->name('admin.tags.store');
-            Route::get('/edit/{id}', [App\Http\Controllers\Admin\TagsController::class, 'edit'])->name('admin.tags.edit');
-            Route::put('/update/{id}', [App\Http\Controllers\Admin\TagsController::class, 'update'])->name('admin.tags.update');
-            Route::delete('/{id}', [App\Http\Controllers\Admin\TagsController::class, 'destroy'])->name(('admin.tags.destroy'));
-        });
+        // Route::group(['prefix' => 'tags'], function() {
+        //     Route::get('/', [\App\Http\Controllers\Admin\TagsController::class, 'index'])->name('admin.tags.index');
+        //     Route::get('/create', [App\Http\Controllers\Admin\TagsController::class, 'create'])->name('admin.tags.create');
+        //     Route::post('/store', [App\Http\Controllers\Admin\TagsController::class, 'store'])->name('admin.tags.store');
+        //     Route::get('/edit/{id}', [App\Http\Controllers\Admin\TagsController::class, 'edit'])->name('admin.tags.edit');
+        //     Route::put('/update/{id}', [App\Http\Controllers\Admin\TagsController::class, 'update'])->name('admin.tags.update');
+        //     Route::delete('/{id}', [App\Http\Controllers\Admin\TagsController::class, 'destroy'])->name(('admin.tags.destroy'));
+        // });
 
     });
 

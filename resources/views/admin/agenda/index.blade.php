@@ -40,6 +40,7 @@
                                 <th scope="col">NAMA AGENDA</th>
                                 <th scope="col">LOKASI</th>
                                 <th scope="col">TANGGAL</th>
+                                <th scope="col">WAKTU</th>
                                 <th scope="col" style="width: 15%;text-align: center">AKSI</th>
                             </tr>
                             </thead>
@@ -49,7 +50,8 @@
                                     <th scope="row" style="text-align: center">{{ ++$no + ($agendas->currentPage()-1) * $agendas->perPage() }}</th>
                                     <td>{{ $agen->nama_agenda }}</td>
                                     <td>{{ $agen->lokasi_agenda }}</td>
-                                    <td>{{ $agen->tgl_agenda }}</td>
+                                    <td>{{ date("d M Y", strtotime($agen->tgl_agenda)) }}</td>
+                                    <td>{{ $agen->waktu }}</td>
                                     <td class="text-center">
                                         @can('agendas.edit')
                                             <a href="{{ route('admin.agenda.edit', $agen->id) }}" class="btn btn-sm btn-primary">

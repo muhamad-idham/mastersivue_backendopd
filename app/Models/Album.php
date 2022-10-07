@@ -29,4 +29,9 @@ class Album extends Model
         );
     }
 
+    protected function fotos()
+    {
+        return $this->hasMany(Album::class);
+    }
+
 }

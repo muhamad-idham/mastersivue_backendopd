@@ -23,7 +23,7 @@ return new class extends Migration
 
             $table->string('gambar', 50);
             $table->date('tgl_publish');
-            $table->enum('status'['0','1']);
+            $table->enum('status',['0','1']);
 
             $table->timestamps();
         });

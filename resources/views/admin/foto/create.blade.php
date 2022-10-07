@@ -34,10 +34,21 @@
                             </div>
 
                             <div class="form-group">
-                                <label>KETERANGAN</label>
+                                <label>KETERANGAN FOTO</label>
                                 <input type="text" name="keterangan" value="{{ old('keterangan') }}" placeholder="Masukkan Keterangan Foto" class="form-control @error('keterangan') is-invalid @enderror">
 
                                 @error('keterangan')
+                                <div class="invalid-feedback" style="display: block">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>TANGGAL</label>
+                                <input type="date" name="tgl_foto" value="{{ old('tgl_foto') }}" placeholder="Masukkan Keterangan Foto" class="form-control @error('tgl_foto') is-invalid @enderror">
+
+                                @error('tgl_foto')
                                 <div class="invalid-feedback" style="display: block">
                                     {{ $message }}
                                 </div>

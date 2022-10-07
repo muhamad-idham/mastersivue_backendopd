@@ -54,18 +54,18 @@ class AgendaController extends Controller
         $this->validate($request, [
             'nama_agenda'   => 'required',
             'tgl_agenda'    => 'required',
-            'waktu'    => 'required',
+            'waktu'         => 'required',
             'lokasi_agenda' => 'required',
             'keterangan'    => 'required'
         ]);
 
         $agenda = Agenda::create([
-            'nama_agenda'     => $request->input('nama_agenda'),
-            'slug'      => Str::slug($request->input('nama_agenda'), '-'),
-            'tgl_agenda'   => $request->input('tgl_agenda'),
-            'waktu'   => $request->input('waktu'),
-            'lokasi_agenda'  => $request->input('lokasi_agenda'),
-            'keterangan'      => $request->input('keterangan')
+            'nama_agenda'   => $request->input('nama_agenda'),
+            'slug'          => Str::slug($request->input('nama_agenda'), '-'),
+            'tgl_agenda'    => $request->input('tgl_agenda'),
+            'waktu'         => $request->input('waktu'),
+            'lokasi_agenda' => $request->input('lokasi_agenda'),
+            'keterangan'    => $request->input('keterangan')
         ]);
 
         if($agenda){

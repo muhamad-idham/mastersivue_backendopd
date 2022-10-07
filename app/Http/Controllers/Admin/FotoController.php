@@ -53,9 +53,10 @@ class FotoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'album_id'  => 'required',
-            'keterangan'   => 'required',
-            'foto'         => 'required|image|mimes:jpeg,jpg,png|max:2048'
+            'album_id'      => 'required',
+            'keterangan'    => 'required',
+            'tgl_foto'      => 'required',
+            'foto'          => 'required|image|mimes:jpeg,jpg,png|max:2048'
 
         ]);
 
@@ -66,10 +67,11 @@ class FotoController extends Controller
         $image->storeAs('public/galerifoto', $image->hashName());
 
         $foto = foto::create([
-            'foto'      => $image->hashName(),
-            'album_id' => $request->input('album_id'),  
-            'keterangan' => $request->input('keterangan'),  
-            'slug'        => Str::slug($request->input('keterangan'), '-')
+            'foto'          => $image->hashName(),
+            'album_id'      => $request->input('album_id'),  
+            'keterangan'    => $request->input('keterangan'),
+            'tgl_foto'      => $request->input('tgl_foto'),  
+            'slug'          => Str::slug($request->input('keterangan'), '-')
         ]);
 
         if($foto){
@@ -119,9 +121,11 @@ class FotoController extends Controller
         // dd($get);
 
         $this->validate($request,[
-            'keterangan'         => 'required',
-            'album_id'     => 'required',
-            'foto'          => 'image|mimes:jpeg,jpg,png|max:2048'
+            'keterangan'    => 'required',
+            'album_id'      => 'required',
+            'tgl_foto'      => 'required',
+            'foto'          => 'image|mimes:jpeg,jpg,png|max:2048',
+             
 
         ]);
 
@@ -129,9 +133,10 @@ class FotoController extends Controller
         
             $data = foto::findOrFail($id);
             $data->update([
-            'album_id'       => $request->input('album_id'),
-            'keterangan'     => $request->input('keterangan'),  
-            'slug'           => Str::slug($request->input('keterangan'), '-')
+            'album_id'      => $request->input('album_id'),
+            'keterangan'    => $request->input('keterangan'),
+            'tgl_foto'      => $request->input('tgl_foto'),  
+            'slug'          => Str::slug($request->input('keterangan'), '-')
             ]);
 
         } else {
@@ -145,10 +150,11 @@ class FotoController extends Controller
 
             $data = foto::findOrFail($id);
             $data->update([
-            'album_id'       => $request->input('album_id'),
-            'keterangan' => $request->input('keterangan'),
-            'foto'      => $image->hashName(),  
-            'slug'        => Str::slug($request->input('keterangan'), '-')
+            'album_id'      => $request->input('album_id'),
+            'keterangan'    => $request->input('keterangan'),
+            'foto'          => $image->hashName(),
+            'tgl_foto'      => $request->input('tgl_foto'),   
+            'slug'          => Str::slug($request->input('keterangan'), '-')
             ]);
 
         }
