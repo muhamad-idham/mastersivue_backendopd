@@ -36,16 +36,7 @@ Route::prefix('admin')->group(function () {
         //tags
         Route::resource('/tag', App\Http\Controllers\Admin\TagController::class, ['except' => 'show' ,'as' => 'admin']);
 
-        //categories
-        Route::resource('/category', App\Http\Controllers\Admin\CategoryController::class, ['except' => 'show' ,'as' => 'admin']);
-
-        //posts
-        Route::resource('/post', App\Http\Controllers\Admin\PostController::class, ['except' => 'show' ,'as' => 'admin']);
-
-        //event
-        // Route::resource('/event', App\Http\Controllers\Admin\EventController::class, ['except' => 'show' ,'as' => 'admin']);
-
-        // event
+        // Agenda
         Route::resource('/agenda', App\Http\Controllers\Admin\AgendaController::class, ['except' => 'show' ,'as' => 'admin']);
 
         //dokumen
@@ -76,9 +67,6 @@ Route::prefix('admin')->group(function () {
         //foto
         Route::resource('/foto', App\Http\Controllers\Admin\FotoController::class, ['except' => 'show' ,'as' => 'admin']);
 
-        // //photo
-        // Route::resource('/photo', App\Http\Controllers\Admin\PhotoController::class, ['except' => ['show', 'create', 'edit', 'update'] ,'as' => 'admin']);
-        
         //video
         Route::resource('/video', App\Http\Controllers\Admin\VideoController::class, ['except' => 'show' ,'as' => 'admin']);
     

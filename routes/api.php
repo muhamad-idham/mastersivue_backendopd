@@ -19,11 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-//posts
-Route::get('/post', [App\Http\Controllers\Api\PostController::class, 'index']);
-Route::get('/post/{id?}', [App\Http\Controllers\Api\PostController::class, 'show']);
-Route::get('/homepage/post', [App\Http\Controllers\Api\PostController::class, 'PostHomePage']);
-
 //berita
 Route::get('/berita', [App\Http\Controllers\Api\BeritaController::class, 'index']); 
 Route::get('/berita/{id?}', [App\Http\Controllers\Api\BeritaController::class, 'show']);
@@ -36,9 +31,9 @@ Route::get('/beranda/datastatis', [App\Http\Controllers\Api\DataStatisController
 
 
 //Agenda
-Route::get('/event', [App\Http\Controllers\Api\AgendaController::class, 'index']);
-Route::get('/event/{slug?}', [App\Http\Controllers\Api\AgendaController::class, 'show']);
-Route::get('/homepage/event', [App\Http\Controllers\Api\AgendaController::class, 'AgendaHomePage']);
+Route::get('/agenda', [App\Http\Controllers\Api\AgendaController::class, 'index']);
+Route::get('/agenda/{slug?}', [App\Http\Controllers\Api\AgendaController::class, 'show']);
+Route::get('/homepage/agenda', [App\Http\Controllers\Api\AgendaController::class, 'AgendaHomePage']);
 
 //slider
 Route::get('/slider', [App\Http\Controllers\Api\SliderController::class, 'index']);
@@ -54,13 +49,13 @@ Route::get('/album', [App\Http\Controllers\Api\AlbumController::class, 'index'])
 Route::get('/tag', [App\Http\Controllers\Api\TagController::class, 'index']);
 Route::get('/tag/{slug?}', [App\Http\Controllers\Api\TagController::class, 'show']);
 
-//category
-Route::get('/category', [App\Http\Controllers\Api\CategoryController::class, 'index']);
-Route::get('/category/{slug?}', [App\Http\Controllers\Api\CategoryController::class, 'show']);
+//Kategori Berita
+Route::get('/kategoriberita', [App\Http\Controllers\Api\KategoriBeritaController::class, 'index']);
+Route::get('/kategoriberita/{slug?}', [App\Http\Controllers\Api\KategoriBeritaController::class, 'show']);
 
-//photo
-Route::get('/photo', [App\Http\Controllers\Api\PhotoController::class, 'index']);
-Route::get('/homepage/photo', [App\Http\Controllers\Api\PhotoController::class, 'PhotoHomepage']);
+//foto
+Route::get('/foto', [App\Http\Controllers\Api\FotoController::class, 'index']);
+Route::get('/homepage/foto', [App\Http\Controllers\Api\FotoController::class, 'FotoHomepage']);
 
 //video
 Route::get('/video', [App\Http\Controllers\Api\VideoController::class, 'index']);

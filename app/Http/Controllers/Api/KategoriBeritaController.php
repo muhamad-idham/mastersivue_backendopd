@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Kategori_Berita;
 use App\Http\Controllers\Controller;
 
-class CategoryController extends Controller
+class KategoriBeritaController extends Controller
 {    
     /**
      * index

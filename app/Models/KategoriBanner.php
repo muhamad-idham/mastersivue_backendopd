@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class KategoriBanner extends Model
 {
     use HasFactory;
+    protected $table = 'kategori_banner';
 
     // fillabel
     protected $fillable = [
@@ -16,6 +17,7 @@ class KategoriBanner extends Model
         'isi',
         'data_id',
     ];
+    protected $guarded = [];
 
     // relationship with data_statis
     public function banner()

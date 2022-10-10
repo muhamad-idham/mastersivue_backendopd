@@ -11,7 +11,7 @@ class slider extends Model
 {
     use HasFactory;
 
-    protected $table = 'sliders';
+    protected $table = 'slider';
  
     protected $guarded = [];
     

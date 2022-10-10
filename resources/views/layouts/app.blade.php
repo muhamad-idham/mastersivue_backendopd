@@ -127,21 +127,6 @@
                             </a>
                         </li>
                         @endcan
-                     
-                        
-                        {{-- @can('posts.index')
-                        <li class="{{ setActive('admin/post') }}"><a class="nav-link"
-                                href="{{ route('admin.post.index') }}"><i class="fas fa-book-open"></i>
-                                <span>Berita Lama</span></a></li>
-                        @endcan --}}
-
-
-
-                        {{-- @can('categories.index')
-                        <li class="{{ setActive('admin/category') }}"><a class="nav-link"
-                                href="{{ route('admin.category.index') }}"><i class="fas fa-folder"></i>
-                                <span>Kategori Berita Lama</span></a></li>
-                        @endcan --}}
 
                         @can('dokumens.index')
                         <li class="{{ setActive('admin/dokumen') }}"><a class="nav-link"
@@ -161,17 +146,10 @@
                                 <span>Banner</span></a></li>
                         @endcan
 
-                        <!-- <li class="{{ setActive('admin/tags') }}">
-                            <a class="nav-link"href="{{ route('admin.tags.index') }}">
-                                <i class="fas fa-book-open"></i>
-                                <span>Tag Baru </span>
-                            </a>
-                        </li> -->
-
                         @can('tags.index')
                         <li class="{{ setActive('admin/tag') }}"><a class="nav-link"
                                 href="{{ route('admin.tag.index') }}"><i class="fas fa-tags"></i> 
-                                <span>Tags Lama</span></a>
+                                <span>Tags</span></a>
                         </li>
                         @endcan
 

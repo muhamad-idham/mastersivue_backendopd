@@ -9,6 +9,8 @@ class Video extends Model
 {
     use HasFactory;
 
+    protected $table = 'video';
+
     /**
      * guarded
      *

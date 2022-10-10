@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Foto;
 
-class PhotoController extends Controller
+class FotoController extends Controller
 {
         
     /**
@@ -30,7 +30,7 @@ class PhotoController extends Controller
      *
      * @return void
      */
-    public function PhotoHomePage()
+    public function FotoHomePage()
     {
         $photos = Foto::latest()->take(6)->get();
         return response()->json([

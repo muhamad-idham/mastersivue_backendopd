@@ -58,7 +58,7 @@ class BannerController extends Controller
             'status'        => 'required',
             'tgl_publish'   => 'required',
             'link'          => 'required',
-            'gambar'        => 'required|image|mimes:jpeg,jpg,png|max:2000'
+            'gambar'        => 'required|image|mimes:jpeg,jpg,png|max:2048'
 
         ]);
 
@@ -132,15 +132,16 @@ class BannerController extends Controller
         $get = Banner::findOrFail($id);
         // dd($get);
 
-        $this->validate($request,[
-            'judul'         => 'required|unique:banner',
-            'kategori_id'   => 'required',
-            'status'        => 'required',
-            'tgl_publish'   => 'required',
-            'link'          => 'link',
-            'gambar'        => 'required|image|mimes:jpeg,jpg,png|max:2000'
+        // $this->validate($request,[
+        //     'judul'         => 'required',
+        //     'kategori_id'   => 'required',
+        //     'status'        => 'required',
+        //     'tgl_publish'   => 'required',
+        //     'link'          => 'required',
+        //     'gambar'        => 'required|image|mimes:jpeg,jpg,png|max:2048'
 
-        ]);
+        // ]);
+        
 
         if ($request->file('gambar') == "") {
         
@@ -170,7 +171,7 @@ class BannerController extends Controller
             'tgl_publish' => $request->input('tgl_publish'),  
             'status'      => $request->input('status'),  
             'link'        => $request->input('link'),  
-            'foto'          => $image->hashName(),  
+            'gambar'      => $image->hashName(),  
             'slug'        => Str::slug($request->input('judul'), '-')
             ]);
 

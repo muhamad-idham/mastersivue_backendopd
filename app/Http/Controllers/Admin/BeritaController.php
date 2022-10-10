@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Berita;
-use App\Models\Tags;
+use App\Models\Tag;
 use App\Models\Kategori_Berita;
 
 
@@ -43,7 +43,7 @@ class BeritaController extends Controller
         
         $kategori = Kategori_Berita::All();
         // dd($kategori);  
-        $tags = Tags::latest()->get();
+        $tags = Tag::latest()->get();
         return view('admin.berita.create', compact('kategori','tags'));
     }
 
@@ -114,7 +114,7 @@ class BeritaController extends Controller
     public function edit($id)
     {
         $data = Berita::findOrFail($id);
-        $tags = Tags::latest()->get();
+        $tags = Tag::latest()->get();
         $kategori = Kategori_Berita::latest()->get();
         return view('admin.berita.edit', compact('data', 'kategori','tags'));
     }

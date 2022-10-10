@@ -11,7 +11,7 @@ class Foto extends Model
 {
     use HasFactory;
 
-    protected $table = 'galeri_foto';
+    protected $table = 'foto';
  
     protected $guarded = [];
 

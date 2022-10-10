@@ -53,7 +53,7 @@
                                     <td>{{ $brt->slug }}</td>
                                     <td><img src="{{ $brt->gambar }}" style="width: 150px"></td>
                                     <td>{{ $brt->tgl_publish }}</td>
-                                    <td>{{ $brt->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
+                                    <td>{{ $brt->status == 0 ? 'Aktif' : 'Tidak Aktif' }}</td>
                                     <td class="text-center">
                                         @can('posts.edit')
                                             <a href="{{ route('admin.slider.edit', $brt->id) }}" class="btn btn-sm btn-primary">

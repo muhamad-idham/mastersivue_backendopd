@@ -88,6 +88,14 @@
                             <img src="{{ $data->gambar }}" width="150px">
                         </div>
 
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select name="status" class="form-control">
+                                <option value="0" {{ $data->status == '0' ? 'selected' : '' }}>Aktif</option>
+                                <option value="1" {{ $data->status == '1' ? 'selceted' : '' }}>Tidak Aktif</option>
+                            </select>
+                        </div>
+
                         <button class="btn btn-primary mr-1 btn-submit" type="submit"><i class="fa fa-paper-plane"></i>
                             UPDATE</button>
                         <button class="btn btn-warning btn-reset" type="reset"><i class="fa fa-redo"></i> RESET</button>
